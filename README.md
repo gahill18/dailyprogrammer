@@ -1,2 +1,2 @@
 # dailyprogrammer
-Repo for solutions to the subreddit Daily Programmer challenges
+Repo for my solutions to the subreddit Daily Programmer challenges
