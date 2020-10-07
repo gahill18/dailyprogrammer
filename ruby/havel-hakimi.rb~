@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+#Remove zeroes
+def rem_z (input)
+  arg = []
+  
+  for num in input
+    if num.to_i != 0 then arg.push(num.to_i) end
+  end
+  
+  return arg
+end
+
+#Length check
+def len_c (num, input)
+  return num > input.length
+end
+
+#Front elimination
+def front_e (num, input)
+  arg = []
+  
+  for i in 0 ... num - 1
+    arg.push(input[i] - 1)
+  end
+  for i in num ... input.length
+    arg.push(input[i])
+  end
+  
+  return arg
+end
+
+#Havel-Hakimi algorithm
+def main (input)
+  arg = rem_z(input)
+  
+  if arg.length < 0 then return true end
+
+  arg.sort.reverse!
+
+  n = arg.shift
+
+  if len_c(n, arg) then return false end
+
+  arg = front_e(n, arg)
+
+  main(arg)
+end
+
+print ARGV
+#print main(ARGV)
+return 0
